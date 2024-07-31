@@ -5,7 +5,7 @@ node_modules/
 *.swp
 *.swo
 *.DS_Store
-
+.env
 ~/.dbconfig
 ~/.bashrc
 ~/.bash_profile
