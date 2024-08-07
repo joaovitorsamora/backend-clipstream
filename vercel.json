@@ -13,6 +13,6 @@
         "dest": "src/index.js"
       }
     ],
-    "buildCommand": "npm install && npm run build"
+    "buildCommand": "npm run build"
   }
   
