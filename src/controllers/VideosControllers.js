@@ -115,37 +115,41 @@ module.exports = {
 
     async comment(req, res) {
         try {
-            const video = await Video.findByPk(req.params.id);
-            if (video) {
-                const newComment = { content: req.body.content };
-                video.comments.push(newComment);
-                video.changed('comments', true);
-                await video.save();
-                const updatedComments = video.comments;
-                res.json({
-                    data: {
-                        comment: newComment.content,
-                        comments: updatedComments
-                    }
-                });
-            } else {
-                res.status(404).send({ message: 'Video não encontrado' });
-            }
+          const video = await Video.findByPk(req.params.id);
+          if (video) {
+            const newComment = {
+              content: req.body.content,
+              user: req.body.user
+            };
+            video.comments.push(newComment);
+            video.changed('comments', true);
+            await video.save();
+            const updatedComments = video.comments;
+            res.json({
+              data: {
+                comment: newComment,
+                comments: updatedComments
+              }
+            });
+          } else {
+            res.status(404).send({ message: 'Vídeo não encontrado' });
+          }
         } catch (error) {
-            res.status(500).send({ message: error.message });
+          res.status(500).send({ message: error.message });
         }
-    },
+      },
+      
 
-    async comments(req, res) {
+      async comments(req, res) {
         try {
-            const video = await Video.findByPk(req.params.id)
-            if (video) {
-                res.json({ comments: video.comments })
-            } else {
-                res.status(404).send({ message: 'Video não encontrado' })
-            }
+          const video = await Video.findByPk(req.params.id);
+          if (video) {
+            res.json({ comments: video.comments });
+          } else {
+            res.status(404).send({ message: 'Vídeo não encontrado' });
+          }
         } catch (error) {
-            res.status(500).send({ message: error.message })
+          res.status(500).send({ message: error.message });
         }
-    }
+      }
 }
