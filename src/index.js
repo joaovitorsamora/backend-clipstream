@@ -3,6 +3,7 @@ const cors = require('cors');
 const routes = require('./router');
 const bodyParser = require('body-parser');
 require('dotenv/config');
+require('pg');
 require('./database');
 
 const app = express();
