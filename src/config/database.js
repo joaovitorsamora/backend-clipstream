@@ -1,13 +1,11 @@
-require('dotenv/config')
+require('dotenv/config');
+
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  database: 'backendVideo',
+  url: process.env.DATABASE_URL,
   define: {
-      timestamps: true,
-      underscored: true,
+    timestamps: true,
+    underscored: true,
   },
   dialectOptions: {
     ssl: {
@@ -15,4 +13,4 @@ module.exports = {
       rejectUnauthorized: false
     }
   }
-}
+};
