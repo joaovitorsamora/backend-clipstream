@@ -13,8 +13,6 @@
         "dest": "src/index.js"
       }
     ],
-    "hooks": {
-    "build": "npm install pg"
-  }
+    "buildCommand": "npm install && npm run build"
   }
   
