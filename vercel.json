@@ -12,6 +12,9 @@
         "src": "/(.*)",
         "dest": "src/index.js"
       }
-    ]
+    ],
+    "hooks": {
+    "build": "npm install pg"
+  }
   }
   
