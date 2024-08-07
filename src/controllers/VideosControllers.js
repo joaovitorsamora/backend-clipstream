@@ -1,6 +1,16 @@
 const Video = require('../models/Video');
 
 module.exports = {
+
+    async indexAll(req, res) { 
+        try {
+            console.log('Servidor rodando ...');
+            res.status(200).send(videos)
+        } catch (error) {
+            return res.status(500).send('Ocorreu um erro no servidor');
+        }
+    },
+
     async index(req, res) {
 
         try {

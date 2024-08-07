@@ -3,7 +3,7 @@ const VideosControllers = require('./controllers/VideosControllers');
 
 const routes = express.Router();
 
-
+routes.get('/', VideosControllers.indexAll);
 routes.get('/videos', VideosControllers.index);
 routes.post('/videos', VideosControllers.store);
 routes.get('/videos/:id', VideosControllers.show);
