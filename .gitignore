@@ -1,6 +1,4 @@
 node_modules/
-*.lock
-
 *.tmp
 *.swp
 *.swo
