@@ -10,10 +10,10 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(routes);
 
-
-module.exports = app;
+app.listen(PORT)
