@@ -23,5 +23,6 @@ routes.post('/api/articles', ArtigosControllers.store);
 routes.get('/api/articles/:id', ArtigosControllers.show);
 routes.delete('/api/articles/:id', ArtigosControllers.delete);
 routes.put('/api/articles/:id', ArtigosControllers.update);
+routes.patch('/api/articles/:id', ArtigosControllers.updateView);
 
 module.exports = routes
