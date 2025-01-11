@@ -33,8 +33,8 @@ module.exports = {
 
     async show(req, res) {
         try {
-            const artigo = await Artigo.findByPk(req.params.id)
-    
+            const id = req.params.id
+            const artigo = await Artigo.findByPk(id)
             if (artigo) {
                 res.status(200).send(artigo);
             } else {
@@ -73,4 +73,33 @@ module.exports = {
             res.status(500).send({ message: error.message });
         }
     },
-}
+
+    async updateView(req, res) {
+        try {
+            const { id } = req.params
+            const { title, url, description, image, site ,views } = req.body
+
+            const artigo = await Artigo.findByPk(id)
+
+            if (!artigo) {
+                res.status(404).send({ message: 'Artigo nao encontrado' })
+            }
+
+            const newViews = views ? artigo.views + 1 : artigo.views
+
+            await artigo.update({
+                title,
+                url,
+                description,
+                image,
+                site,
+                views: newViews
+            })
+            res.status(200).send({ message: 'Artigo atualizado com sucesso!', artigo });
+        }
+        catch (error) {
+            res.status(500).send({ message: error.message });
+        }
+    }
+}    
+
