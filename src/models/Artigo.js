@@ -7,12 +7,26 @@ class Artigo extends Model {
       url: DataTypes.STRING,
       description: DataTypes.TEXT,
       site: DataTypes.STRING,
-      image: DataTypes.STRING
+      image: DataTypes.STRING,
+      views: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      }
     }, {
       sequelize,
       tableName: 'Artigos'
     })
   }
+
+  // static async incrementViews(id) { 
+  //   const artigo = await Artigo.findByPk(id);
+  //   if (artigo) {
+  //     artigo.views += 1;
+  //     await artigo.save();
+  //   }
+  // }
 }
+
+
 
 module.exports = Artigo
