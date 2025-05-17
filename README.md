@@ -64,7 +64,7 @@ O **Backend ClipStream** é uma API desenvolvida em Node.js para gerenciamento d
 
 1. **Clone o repositório:**
    ```sh
-   git clone https://github.com/seu-usuario/backend-clipStream.git
+   git clone https://github.com/joaovitorsamora/backend-clipStream.git
    cd backend-clipStream
    ```
 
